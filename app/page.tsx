@@ -9,7 +9,7 @@ const inria = Inria_Sans({
 
 export default function Home() {
   return (
-    <div className='w-4/6'>
+    <div className='w-5/6'>
       <div className='mt-50 flex flex-col items-center text-5xl'>
         <p className={`pb-5 ${inria.className}`}>Shoot, Share and Learn with</p>
         <p className={inria.className}>Every frame</p>
@@ -19,7 +19,7 @@ export default function Home() {
           <input type='text' className='w-120 h-10 text-xl border-1 border-transparent border-b-gray-300 indent-2 focus:outline-none' placeholder='Write down your idea' />
         </form>
       </div>
-      <div className='w-full my-50'>
+      <div className='w-full my-30'>
         <MasonryLayout />
       </div>
     </div>

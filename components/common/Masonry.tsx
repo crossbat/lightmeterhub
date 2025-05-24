@@ -31,9 +31,9 @@ const items = [
 export default function MasonryLayout() {
   return (
     <Masonry items={items} config={{
-      columns: [1, 2, 3, 4],
-      gap: [6, 12, 24, 36],
-      media: [640, 1024, 1280, 1440],
+      columns: [1, 2, 3, 4, 5],
+      gap: [6, 10, 14, 18, 22],
+      media: [640, 1024, 1280, 1300, 1500],
       useBalancedLayout: true
     }}
       render={(item) => (
