@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import './home.css'
 import { Inria_Sans } from 'next/font/google';
 import MasonryLayout from '@/components/common/Masonry';

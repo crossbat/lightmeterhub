@@ -16,8 +16,8 @@ export default function Navigation() {
   return (
     <>
       {menuData.map((menu) => (
-        <Link key={menu.id} href={menu.path} className={`p-3 hover:bg-gray-300 rounded-lg ${menu.path === pathname ? 'bg-gray-300' : 'bg-transparent hover:bg-gray-300'}`}>
-          <Image src={menu.imagePath} width={15} height={15} alt='search' />
+        <Link key={menu.id} href={menu.path} className={`p-4 hover:bg-gray-300 rounded-lg ${menu.path === pathname ? 'bg-gray-300' : 'bg-transparent hover:bg-gray-300'}`}>
+          <Image src={menu.imagePath} width={25} height={25} alt='search' />
         </Link>
       ))}
     </>
