@@ -1,6 +1,7 @@
 import './home.css'
 import { Inria_Sans } from 'next/font/google';
 import MasonryLayout from '@/components/common/Masonry';
+import items from '../masonry-data.json'
 
 const inria = Inria_Sans({
   weight: '400'
@@ -19,7 +20,7 @@ export default function Home() {
         </form>
       </div>
       <div className='w-full my-30'>
-        <MasonryLayout />
+        <MasonryLayout items={items} />
       </div>
     </div>
   )
