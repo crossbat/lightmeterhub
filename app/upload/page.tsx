@@ -1,7 +1,7 @@
 'use client'
 
 import EXIF from "exif-js";
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { SubmitHandler, useForm } from "react-hook-form";
 import { FaRegFileImage } from "react-icons/fa6";
 
@@ -19,15 +19,33 @@ export default function UploadImage() {
   const [tag, setTag] = useState('')
   const [imageURL, setImageURL] = useState<string | null>(null)
 
-  const { register, reset, handleSubmit, setValue, formState: { errors } } = useForm<IInputs>({
+  const { register, reset, handleSubmit, setValue, getValues, formState: { errors } } = useForm<IInputs>({
     defaultValues: {
       iso: '',
       shutterSpeed: '',
-      aperture: ''
+      aperture: '',
+      tags: []
     }
   });
 
+  useEffect(() => {
+    setValue('tags', tags);
+  }, [tags, setValue])
+
   const onSubmit: SubmitHandler<IInputs> = (data) => console.log(data);
+
+  const onReset = () => {
+    const { iso, shutterSpeed, aperture } = getValues()
+    reset({
+      title: '',
+      location: '',
+      tags: [],
+      iso,
+      shutterSpeed,
+      aperture
+    });
+    setTags([]);
+  }
 
   const createTag = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter' && tag.trim() !== '') {
@@ -95,7 +113,7 @@ export default function UploadImage() {
           }
         </div>
         <div className="w-140 mt-3">
-          <form onSubmit={handleSubmit(onSubmit)}>
+          <form>
             <div className='rounded-sm h-15 text-center flex items-center font-bold ring ring-gray-300 hover:shadow-lg'>
               <label htmlFor='fileInput' className='w-full text-2xl'>이미지 추가하기</label>
               <input id='fileInput' type='file' className='w-full hidden' onChange={setImage} />
@@ -141,8 +159,8 @@ export default function UploadImage() {
       <div className="grid row-span-4 col-span-2 grid-cols-subgrid">
         <div className="w-160 col-start-2 flex justify-end h-full">
           <div className='flex gap-10 h-2/6 text-2xl'>
-            <button type='button' onClick={() => reset()} className='px-6 py-1 rounded-2xl font-bold bg-[#d9d9d9] hover:shadow-md'>Clear</button>
-            <button type='submit' className='px-6 py-1 rounded-2xl font-bold bg-[#d9d9d9] hover:shadow-md'>Upload</button>
+            <button type='button' onClick={onReset} className='px-6 py-1 rounded-2xl font-bold bg-[#d9d9d9] hover:shadow-md'>Clear</button>
+            <button type='submit' onClick={handleSubmit(onSubmit)} className='px-6 py-1 rounded-2xl font-bold bg-[#d9d9d9] hover:shadow-md'>Upload</button>
           </div>
         </div>
       </div>

@@ -1,5 +1,6 @@
 import MasonryLayout from "@/components/common/Masonry";
 import React from "react";
+import items from '../../masonry-data.json'
 
 export default function MypageLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
@@ -11,7 +12,7 @@ export default function MypageLayout({ children }: Readonly<{ children: React.Re
         <p className="text-3xl font-semibold pb-3 pt-15">Posts</p>
       </div>
       <div className="w-5/6">
-        <MasonryLayout />
+        <MasonryLayout items={items} />
       </div>
     </div>
   )
