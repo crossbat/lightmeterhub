@@ -12,11 +12,11 @@ export default function Mypage() {
         <p className="text-4xl font-semibold">Name</p>
         <p className="text-2xl">Nickname</p>
         <a href="#" className="flex items-center">
-          <Image src='/mypageImages/instagram_icon.svg' alt="instagram_icon" width={25} height={25} />
+          <Image src='/mypageImage/instagram_icon.svg' alt="instagram_icon" width={25} height={25} />
           <p className="text-xl pl-1">Instagram URL</p>
         </a>
         <a href="#" className="flex items-center">
-          <Image src='/mypageImages/threads.svg' alt="instagram_icon" width={25} height={25} />
+          <Image src='/mypageImage/threads.svg' alt="instagram_icon" width={25} height={25} />
           <p className="text-xl pl-1">Threads URL</p>
         </a>
         <div className="flex gap-5 mt-5">
