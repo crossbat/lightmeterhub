@@ -4,7 +4,6 @@ import { overlayStore } from "@/store/authPageStore"
 
 export default function SignUp() {
   const setOverlayState = overlayStore((state) => state.setOverlayState);
-
   return (
     <div className="flex flex-col justify-center items-center">
       <span className="text-6xl ">Create Account</span>
